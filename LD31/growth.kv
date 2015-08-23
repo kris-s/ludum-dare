@@ -1,0 +1,75 @@
+#:kivy 1.8.0
+
+<Grow>:
+
+<Square>
+    size_hint: None, None
+    size: self.square_size, self.square_size
+    canvas:
+        Color:
+            rgba: self.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        text: 'combo: ' + str(root.line_bonus)
+
+<Menu>
+    size_hint: None, None
+    size: self.menu_size, self.menu_size
+    canvas:
+        Color:
+            rgba: self.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Food>
+    size_hint: None, None
+    size: self.food_size, self.food_size
+    canvas:
+        Color:
+            rgba: self.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Obstacle>
+    size_hint: None, None
+    size: self.obstacle_size, self.obstacle_size
+    canvas:
+        Color:
+            rgba: self.color
+        Rectangle:
+            pos: self.pos
+            size: self.size[0]* 7/16, self.size[1]* 7/16
+        Rectangle:
+            pos: self.pos[0]+self.width/2, self.pos[1]
+            size: self.size[0]* 7/16, self.size[1]* 7/16
+        Rectangle:
+            pos: self.pos[0]+self.width/2, self.pos[1]+self.height/2
+            size: self.size[0]* 7/16, self.size[1]* 7/16
+        Rectangle:
+            pos: self.pos[0], self.pos[1]+self.height/2
+            size: self.size[0]* 7/16, self.size[1]* 7/16
+
+<Score>
+    size_hint: None, None
+    size: self.score_size, self.score_size
+    canvas:
+        Color:
+            rgba: (.2, .2, .2, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        pos: root.pos
+        size: root.size
+        text: root.score_text
+        font_size: 40
+
+    Label:
+        pos: root.pos[0], root.pos[1] + 45
+        size: root.size
+        text: root.score_label
+        font_size: 20
